@@ -2,6 +2,7 @@
 
 use App\Livewire\DuoGallows;
 use App\Livewire\Gallows;
+use App\Livewire\QuadraGallows;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Gallows::class)->name('gallows');
 Route::get('/duo', DuoGallows::class)->name('gallows.duo');
+Route::get('/quadra', QuadraGallows::class)->name('gallows.quadra');
 

@@ -24,7 +24,7 @@
                         <a wire:navigate href="{{ route('gallows.duo') }}">DuoGallows</a>
                     </li>
                     <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'QuadraGallows'}"  @click="page = 'QuadraGallows'">
-                        <a wire:navigate href="{{ route('gallows.duo') }}">DuoGallows</a>
+                        <a wire:navigate href="{{ route('gallows.quadra') }}">DuoGallows</a>
                     </li>
                 </ul>
             </div>
@@ -72,7 +72,7 @@
                         <x-nav-link number="2" name="DuoGallows" href="{{ route('gallows.duo') }}" />
                     </li>
                     <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'QuadraGallows'}"  @click="page = 'QuadraGallows'">
-                        <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.duo') }}" />
+                        <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.quadra') }}" />
                     </li>
                 </ul>
             </div>
