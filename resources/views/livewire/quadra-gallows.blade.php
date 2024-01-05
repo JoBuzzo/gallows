@@ -58,35 +58,11 @@
                 </div>
             </div>
 
-            @if (!$modal)
-                <script>
-                    document.addEventListener("livewire:navigated", function() {
-                        const inputField = document.getElementById('key');
-
-                        function maintainFocus() {
-                            if (window.innerWidth > 768) {
-                                inputField.focus();
-                            }
-                        }
-                        setInterval(maintainFocus, 1);
-                        inputField.addEventListener('keydown', function(event) {
-                            if (event.key === 'Enter') {
-                                inputField.value = '';
-                            }
-                        });
-                    });
-                </script>
-                <span class="absolute left-0 right-0 text-sm font-bold text-red-600 bottom-10 whitespace-nowrap">{{ session('error') }}</span>
-            @endif
             <div class="flex flex-col items-center justify-center w-full">
                 <div class="relative justify-start hidden p-1 md:flex">
-                    <input wire:keydown.enter="handleKeyDown" wire:model="key"
-                        class="uppercase bg-transparent border-0 focus:border-0 focus:ring-0 ring-0" id="key"
-                        placeholder="Digite uma letra" autocomplete="off" />
+                    <x-input :modal="$modal"/>
                     @if ($errors->has('key'))
                         <span class="absolute left-0 right-0 text-sm font-bold text-red-600 bottom-10 whitespace-nowrap">{{ $errors->first('key') }}</span>
-                    @elseif(session('error'))
-                        <span class="absolute left-0 right-0 text-sm font-bold text-red-600 bottom-10 whitespace-nowrap">{{ session('error') }}</span>
                     @endif
                 </div>
 
