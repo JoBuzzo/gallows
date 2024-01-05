@@ -11,7 +11,7 @@
             <div class="relative w-1/2 font-bold">
                 <button @click="dropdown = !dropdown">Games</button>
 
-                <ul class="absolute flex flex-col items-start justify-center px-2 pl-1 text-sm bg-black rounded-b-md -right-5 top-10"
+                <ul class="absolute z-40 flex flex-col items-start justify-center px-2 pl-1 text-sm bg-black rounded-b-md -right-5 top-10"
                     x-show="dropdown" x-on:click.outside="dropdown = false"
                     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
                     x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"

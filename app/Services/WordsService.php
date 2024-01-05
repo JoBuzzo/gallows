@@ -10,16 +10,16 @@ class WordsService
 
         switch ($rand) {
             case 1:
-                $content = file_get_contents(storage_path('app/public/substantivos.txt'));
+                $content = file_get_contents('files\\adjetivos.txt');
                 break;
             case 2:
-                $content = file_get_contents(storage_path('app/public/adjetivos.txt'));
+                $content = file_get_contents('files\\adjetivos.txt');
                 break;
             case 3:
-                $content = file_get_contents(storage_path('app/public/verbos.txt'));
+                $content = file_get_contents('files\\verbos.txt');
                 break;
             default:
-                $content = file_get_contents(storage_path('app/public/adverbios.txt'));
+                $content = file_get_contents('files\\adverbios.txt');
                 break;
         }
 
