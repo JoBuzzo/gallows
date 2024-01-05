@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Services\DuoGallowsService;
+use App\Services\WordsService;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
@@ -11,7 +12,7 @@ use Livewire\Component;
 class DuoGallows extends Component
 {
 
-    #[Title("Gallows")]
+    #[Title("DuoGallows")]
     public string $word1;
     public string $word2;
     public $wordArr1 = array();
@@ -24,25 +25,7 @@ class DuoGallows extends Component
     public $numberImage = 0;
     public function mount()
     {
-        $rand = rand(1, 4);
-
-        switch ($rand) {
-            case 1:
-                $content = file_get_contents(storage_path('app/public/substantivos.txt'));
-                break;
-            case 2:
-                $content = file_get_contents(storage_path('app/public/adjetivos.txt'));
-                break;
-            case 3:
-                $content = file_get_contents(storage_path('app/public/verbos.txt'));
-                break;
-            default:
-                $content = file_get_contents(storage_path('app/public/adverbios.txt'));
-                break;
-        }
-
-
-        $words = explode(PHP_EOL, $content);
+        $words = WordsService::words();
 
         $this->word1 = $words[rand(0, count($words))];
         $this->word2 = $words[rand(0, count($words))];

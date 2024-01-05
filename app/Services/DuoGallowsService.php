@@ -20,10 +20,9 @@ class DuoGallowsService
 
     public static function checkLetterInWord($letter, $wordArr1, $wordArr2, &$correctLetters, &$errorLetters, &$lifes)
     {
-        if (
-            !self::compareLetterWithAccent($letter, $wordArr1, $correctLetters)
-            && !self::compareLetterWithAccent($letter, $wordArr2, $correctLetters)
-        ) {
+        $hasLetterinArr1 = self::compareLetterWithAccent($letter, $wordArr1, $correctLetters);
+        $hasLetterinArr2 = self::compareLetterWithAccent($letter, $wordArr2, $correctLetters);
+        if (!$hasLetterinArr1 && !$hasLetterinArr2) {
             $errorLetters[] = $letter;
             $lifes--;
             return false;
@@ -33,7 +32,7 @@ class DuoGallowsService
 
     public static function finishedWin($wordArr1, $wordArr2, $correctLetters)
     {
-        return count($wordArr1) + count($wordArr2) == count($correctLetters);
+       return count($correctLetters) == count($wordArr1) + count($wordArr2);
     }
 
     public static function finishedLost($lifes)
