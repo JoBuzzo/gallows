@@ -41,15 +41,15 @@
     @persist('sidebar')
         <div class="absolute top-0 left-0 z-40 flex-col items-start justify-between hidden h-screen p-4 bg-black md:flex rounded-r-md"
             :class="{
-                'w-44 transition-all ease-in-out duration-300': show,
+                'w-56 transition-all ease-in-out duration-300': show,
                 'w-16 transition-all ease-in-out duration-300': !show
             }"
             x-on:click.outside="show = false">
 
-            <div class="flex flex-col justify-between h-1/3">
+            <div class="flex flex-col justify-between h-[40%]">
                 <div class="flex flex-col items-start justify-start gap-2">
                     <div class="flex items-center justify-center gap-2">
-                        <img class="w-10" src="{{ asset('images/logo.png') }}"
+                        <img class="w-8" src="{{ asset('images/logo.png') }}"
                             alt="{{ config('app.name', 'Gallows') }} Logo">
                         <span x-show="show" x-transition:enter.duration.500ms class="text-lg font-black">Gallows</span>
                     </div>
