@@ -1,7 +1,6 @@
 <div>
     @if (!$modal)
-        <div
-            class="flex flex-col items-center justify-center w-full gap-4 px-4 xl:gap-24 @if ($modal) blur-3xl @endif">
+        <div class="flex flex-col items-center justify-center w-full gap-4 px-4 xl:gap-24 @if ($modal) blur-3xl @endif">
             <div class="flex flex-col items-center justify-center w-full gap-2 mt-10">
                 <img src="{{ asset("images/$numberImage.png") }}" alt="Boneco do jogo da forca" class="w-40 xl:w-1/12">
             </div>
@@ -59,40 +58,7 @@
                 </div>
 
 
-                <div class="absolute bottom-0.5">
-                    <div class="flex items-center justify-center w-full">
-                        <x-keyboard value="q" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="w" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="e" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="r" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="t" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="y" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="u" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="i" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="o" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="p" :corret="$correctLetters" :error="$errorLetters" />
-                    </div>
-                    <div class="flex items-center justify-center w-full">
-                        <x-keyboard value="a" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="s" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="d" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="f" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="g" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="h" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="j" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="k" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="l" :corret="$correctLetters" :error="$errorLetters" />
-                    </div>
-                    <div class="flex items-center justify-center w-full">
-                        <x-keyboard value="z" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="x" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="c" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="v" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="b" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="n" :corret="$correctLetters" :error="$errorLetters" />
-                        <x-keyboard value="m" :corret="$correctLetters" :error="$errorLetters" />
-                    </div>
-                </div>
+                <x-keyboard :correctLetters="$correctLetters" :errorLetters="$errorLetters" />
 
             </div>
 
