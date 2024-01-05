@@ -3,7 +3,7 @@
         <x-container :modal="$modal">
             <x-gallows-image :numberImage="$numberImage" />
 
-            <div class="grid items-end justify-end gap-10 md:grid-cols-2">
+            <div class="grid gap-2 mt-20 xl:gap-10 xl:grid-cols-2 xl:mt-0">
                 <div class="flex flex-col items-start">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
@@ -17,10 +17,7 @@
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr2 as $w)
-                            <div
-                                class="flex items-center justify-center w-6 h-6 text-xl text-center text-white uppercase bg-black border border-[#181818] rounded-md md:h-16 md:w-16">
-                                <x-box :w="$w" :correctLetters="$correctLetters" />
-                            </div>
+                            <x-box :w="$w" :correctLetters="$correctLetters" />
                         @endforeach
                     </div>
                 </div>
