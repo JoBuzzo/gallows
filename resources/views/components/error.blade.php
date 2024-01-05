@@ -1,0 +1,1 @@
+<span class="absolute left-0 right-0 text-sm font-bold text-red-600 bottom-10 whitespace-nowrap">{{ $error }}</span>
