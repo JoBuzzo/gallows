@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Str;
 
-class GallowService
+class GallowsService
 {
 
     protected static function compareLetterWithAccent($letter, $wordArr, &$correctLetters)

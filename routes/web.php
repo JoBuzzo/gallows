@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\DuoGallows;
 use App\Livewire\Gallows;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Gallows::class)->name('gallow');
+Route::get('/', Gallows::class)->name('gallows');
+Route::get('/duo', DuoGallows::class)->name('gallows.duo');
 

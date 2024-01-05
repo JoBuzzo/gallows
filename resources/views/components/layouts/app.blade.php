@@ -36,10 +36,10 @@
 
             <ul class="flex items-center justify-center w-full gap-4 text-sm font-bold md:gap-10 md:text-base">
                 <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'Gallows') text-[#02e659a5] @endif">
-                    Gallows
+                    <a href="{{ route('gallows') }}">Gallows</a>
                 </li>
                 <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'DuoGallows') text-[#02e659a5] @endif">
-                    DuoGallows
+                    <a href="{{ route('gallows.duo') }}">DuoGallows</a>
                 </li>
                 <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'QuadraGallows') text-[#02e659a5] @endif">
                     QuadraGallows
