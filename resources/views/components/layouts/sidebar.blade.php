@@ -1,4 +1,4 @@
-<nav class="relative w-full" x-data="{ show: false, dropdown: false }" x-cloak>
+<nav class="relative" x-data="{ show: false, dropdown: false }" x-cloak>
 
     <div class="flex items-center justify-between w-full p-4 bg-black rounded-b-md md:hidden">
         <div class="flex items-center justify-center gap-2">
@@ -18,15 +18,15 @@
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                     <li
                         class="hover:text-[#02e659a5] cursor-pointer py-2 @if ($title == 'Gallows') text-[#02e659a5] @endif">
-                        <a href="{{ route('gallows') }}">Gallows</a>
+                        <a wire:navigate href="{{ route('gallows') }}">Gallows</a>
                     </li>
                     <li
                         class="hover:text-[#02e659a5] cursor-pointer py-2 @if ($title == 'DuoGallows') text-[#02e659a5] @endif">
-                        <a href="{{ route('gallows.duo') }}">DuoGallows</a>
+                        <a wire:navigate href="{{ route('gallows.duo') }}">DuoGallows</a>
                     </li>
                     <li
                         class="hover:text-[#02e659a5] cursor-pointer py-2 @if ($title == 'QuadraGallows') text-[#02e659a5] @endif">
-                        QuadraGallows
+                        <a wire:navigate href="{{ route('gallows.duo') }}">DuoGallows</a>
                     </li>
                 </ul>
             </div>
@@ -40,19 +40,19 @@
     </div>
 
 
-
-
     <div class="absolute top-0 left-0 z-40 flex-col items-start justify-between hidden h-screen p-4 bg-black md:flex rounded-r-md"
-        x-on:click.outside="show = false" @click="show = !show">
+        :class="{ 'w-44 transition-all ease-in-out duration-300': show, 'w-16 transition-all ease-in-out duration-300': !show }"
+        x-on:click.outside="show = false" >
 
         <div class="flex flex-col justify-between h-1/3">
             <div class="flex flex-col items-start justify-start gap-2">
                 <div class="flex items-center justify-center gap-2">
-                    <img class="w-10" src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Gallows') }} Logo">
-                    <span x-show="show" class="text-lg font-black">Gallows</span>
+                    <img class="w-10" src="{{ asset('images/logo.png') }}"
+                        alt="{{ config('app.name', 'Gallows') }} Logo">
+                    <span x-show="show" x-transition:enter.duration.500ms class="text-lg font-black">Gallows</span>
                 </div>
-    
-                <button class="hidden p-2 bg-black rounded md:block">
+
+                <button class="hidden p-2 bg-black rounded md:block" @click="show = !show">
                     <template x-if="!show">
                         <x-icon.angle-right />
                     </template>
@@ -61,15 +61,18 @@
                     </template>
                 </button>
             </div>
-    
+
             <ul class="flex flex-col items-start justify-center gap-4 text-sm font-bold md:gap-10 md:text-base">
-                <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'Gallows') text-[#02e659a5] @endif">
+                <li
+                    class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'Gallows') text-[#02e659a5] @endif">
                     <x-nav-link number="1" name="Gallows" href="{{ route('gallows') }}" />
                 </li>
-                <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'DuoGallows') text-[#02e659a5] @endif">
+                <li
+                    class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'DuoGallows') text-[#02e659a5] @endif">
                     <x-nav-link number="2" name="DuoGallows" href="{{ route('gallows.duo') }}" />
                 </li>
-                <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'QuadraGallows') text-[#02e659a5] @endif">
+                <li
+                    class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'QuadraGallows') text-[#02e659a5] @endif">
                     <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.duo') }}" />
                 </li>
             </ul>
@@ -78,7 +81,7 @@
 
         <a href="#" class="flex items-center w-full gap-2 text-lg font-bold">
             <x-icon.info class="w-5 h-5" />
-            <span x-show="show">Sobre</span>
+            <span x-show="show" x-transition:enter.duration.500ms>Sobre</span>
         </a>
 
     </div>
