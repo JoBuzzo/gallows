@@ -34,7 +34,7 @@
             <img class="w-12 md:w-10" src="{{ asset('images/logo.png') }}"
                 alt="{{ config('app.name', 'Gallows') }} Logo">
 
-            <ul class="flex items-center w-full gap-4 text-sm font-bold md:gap-10 md:text-base justify-evenly">
+            <ul class="flex items-center justify-center w-full gap-4 text-sm font-bold md:gap-10 md:text-base">
                 <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'Gallows') text-[#02e659a5] @endif">
                     Gallows
                 </li>
@@ -45,6 +45,12 @@
                     QuadraGallows
                 </li>
             </ul>
+
+            
+            <button>
+                <x-icon.info class="w-4 h-4" />
+            </button>
+            
         </div>
 
     </nav>
