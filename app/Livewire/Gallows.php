@@ -8,7 +8,7 @@ use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Gallow extends Component
+class Gallows extends Component
 {
     #[Title("Gallows")]
     public string $word;
@@ -68,7 +68,7 @@ class Gallow extends Component
 
         $this->numberImage = 6 - $this->lifes;
 
-        return view('livewire.gallow');
+        return view('livewire.gallows');
     }
     public function verifyLetter($letter)
     {

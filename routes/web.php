@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Gallow;
+use App\Livewire\Gallows;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Gallow::class)->name('gallow');
+Route::get('/', Gallows::class)->name('gallow');
 
