@@ -23,7 +23,7 @@ class WordsService
                 break;
         }
 
-        $words = explode("\n", $content);
+        $words = explode(PHP_EOL, $content);
 
         return $words;
     }
