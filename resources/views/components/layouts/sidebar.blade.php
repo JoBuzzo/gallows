@@ -42,41 +42,43 @@
 
 
 
-    <div class="absolute top-0 left-0 z-40 flex-col justify-between hidden h-screen p-4 bg-black md:flex rounded-r-md"
+    <div class="absolute top-0 left-0 z-40 flex-col items-start justify-between hidden h-screen p-4 bg-black md:flex rounded-r-md"
         x-on:click.outside="show = false" @click="show = !show">
 
-        <div class="flex flex-col items-start justify-start gap-2">
-            <div class="flex items-center justify-center gap-2">
-                <img class="w-10" src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Gallows') }} Logo">
-                <span x-show="show" class="text-lg font-black">Gallows</span>
+        <div class="flex flex-col justify-between h-1/3">
+            <div class="flex flex-col items-start justify-start gap-2">
+                <div class="flex items-center justify-center gap-2">
+                    <img class="w-10" src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Gallows') }} Logo">
+                    <span x-show="show" class="text-lg font-black">Gallows</span>
+                </div>
+    
+                <button class="hidden p-2 bg-black rounded md:block">
+                    <template x-if="!show">
+                        <x-icon.angle-right />
+                    </template>
+                    <template x-if="show">
+                        <x-icon.angle-left />
+                    </template>
+                </button>
             </div>
-
-            <button class="hidden p-2 bg-black rounded md:block">
-                <template x-if="!show">
-                    <x-icon.angle-right />
-                </template>
-                <template x-if="show">
-                    <x-icon.angle-left />
-                </template>
-            </button>
+    
+            <ul class="flex flex-col items-start justify-center gap-4 text-sm font-bold md:gap-10 md:text-base">
+                <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'Gallows') text-[#02e659a5] @endif">
+                    <x-nav-link number="1" name="Gallows" href="{{ route('gallows') }}" />
+                </li>
+                <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'DuoGallows') text-[#02e659a5] @endif">
+                    <x-nav-link number="2" name="DuoGallows" href="{{ route('gallows.duo') }}" />
+                </li>
+                <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'QuadraGallows') text-[#02e659a5] @endif">
+                    <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.duo') }}" />
+                </li>
+            </ul>
         </div>
 
-        <ul class="flex flex-col items-start justify-center gap-4 text-sm font-bold md:gap-10 md:text-base">
-            <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'Gallows') text-[#02e659a5] @endif">
-                <x-nav-link number="1" name="Gallows" href="{{ route('gallows') }}" />
-            </li>
-            <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'DuoGallows') text-[#02e659a5] @endif">
-                <x-nav-link number="2" name="DuoGallows" href="{{ route('gallows.duo') }}" />
-            </li>
-            <li class="hover:text-[#02e659a5] cursor-pointer @if ($title == 'QuadraGallows') text-[#02e659a5] @endif">
-                <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.duo') }}" />
-            </li>
 
-        </ul>
-
-
-        <a href="#">
-            <x-icon.info class="w-4 h-4" />
+        <a href="#" class="flex items-center w-full gap-2 text-lg font-bold">
+            <x-icon.info class="w-5 h-5" />
+            <span x-show="show">Sobre</span>
         </a>
 
     </div>

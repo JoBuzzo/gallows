@@ -66,7 +66,7 @@
     </div>
 
 
-    <div class="absolute bottom-0.5 right-1/3 left-1/3">
+    <div class="absolute bottom-0.5">
         <div class="flex items-center justify-center w-full">
             <x-keyboard value="q" :corret="$correctLetters" :error="$errorLetters" />
             <x-keyboard value="w" :corret="$correctLetters" :error="$errorLetters" />
