@@ -49,7 +49,7 @@
                 <h1 class="text-lg">Letras corretas:</h1>
                 <div class="flex flex-wrap items-center justify-center">
                     @foreach (array_unique($correctLetters) as $currectLetter)
-                        @if ($currectLetter != '-' || $currectLetter != "'")
+                        @if ($currectLetter != '-' && $currectLetter != "'")
                             <div class="flex items-center justify-center w-8 h-8 text-xl text-center text-white uppercase border border-black bg-[#02e659a5] rounded-md xl:h-12 xl:w-12">
                                 {{ $currectLetter }}
                             </div>
