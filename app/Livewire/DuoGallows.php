@@ -23,6 +23,7 @@ class DuoGallows extends Component
     public $modal = false;
     public $win;
     public $numberImage = 0;
+    public $wordIsBig;
     public function mount()
     {
         $words = WordsService::words();
@@ -41,6 +42,8 @@ class DuoGallows extends Component
         if (in_array("'", $this->wordArr1) || in_array("'", $this->wordArr2)) {
             $this->correctLetters[] = "'";
         }
+
+        $this->wordIsBig = count($this->wordArr1) > 16 || count($this->wordArr2) > 16;
     }
     public function render()
     {

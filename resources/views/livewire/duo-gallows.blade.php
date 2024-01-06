@@ -4,20 +4,20 @@
             <x-gallows-image :numberImage="$numberImage" />
 
             <div class="grid gap-2 mt-20 xl:gap-10 xl:grid-cols-2 xl:mt-0">
-                <div class="flex flex-col items-start">
+                <div class="flex flex-col items-start justify-end w-full">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr1 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" />
+                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig" />
                         @endforeach
                     </div>
                 </div>
 
-                <div class="flex flex-col items-start">
+                <div class="flex flex-col items-start justify-end w-full">
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr2 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" />
+                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig" />
                         @endforeach
                     </div>
                 </div>

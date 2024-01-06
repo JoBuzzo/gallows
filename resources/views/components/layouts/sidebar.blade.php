@@ -17,14 +17,14 @@
                     x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                     
-                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'Gallows'}"  @click="page = 'Gallows'">
-                        <a wire:navigate href="{{ route('gallows') }}">Gallows</a>
+                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'Gallows'}" >
+                        <a wire:navigate @click="page = 'Gallows'" href="{{ route('gallows') }}">Gallows</a>
                     </li>
-                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'DuoGallows'}"  @click="page = 'DuoGallows'">
-                        <a wire:navigate href="{{ route('gallows.duo') }}">DuoGallows</a>
+                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'DuoGallows'}">
+                        <a wire:navigate @click="page = 'DuoGallows'" href="{{ route('gallows.duo') }}">DuoGallows</a>
                     </li>
-                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'QuadraGallows'}"  @click="page = 'QuadraGallows'">
-                        <a wire:navigate href="{{ route('gallows.quadra') }}">DuoGallows</a>
+                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'QuadraGallows'}"  >
+                        <a wire:navigate @click="page = 'QuadraGallows'" href="{{ route('gallows.quadra') }}">DuoGallows</a>
                     </li>
                 </ul>
             </div>
@@ -65,14 +65,14 @@
                 </div>
 
                 <ul class="flex flex-col items-start justify-center gap-4 text-sm font-bold md:gap-10 md:text-base">
-                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'Gallows'}"  @click="page = 'Gallows'">
-                        <x-nav-link number="1" name="Gallows" href="{{ route('gallows') }}" />
+                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'Gallows'}">
+                        <x-nav-link number="1" name="Gallows" href="{{ route('gallows') }}" @click="page = 'Gallows'" />
                     </li>
-                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'DuoGallows'}"  @click="page = 'DuoGallows'">
-                        <x-nav-link number="2" name="DuoGallows" href="{{ route('gallows.duo') }}" />
+                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'DuoGallows'}">
+                        <x-nav-link number="2" name="DuoGallows" href="{{ route('gallows.duo') }}" @click="page = 'DuoGallows'" />
                     </li>
-                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'QuadraGallows'}"  @click="page = 'QuadraGallows'">
-                        <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.quadra') }}" />
+                    <li class="hover:text-[#02e659a5] cursor-pointer py-2" :class="{'text-[#02e659a5]' : page === 'QuadraGallows'}">
+                        <x-nav-link number="4" name="QuadraGallows" href="{{ route('gallows.quadra') }}" @click="page = 'QuadraGallows'" />
                     </li>
                 </ul>
             </div>

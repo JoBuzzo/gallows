@@ -1,4 +1,4 @@
-<a href="{{ $href }}" class="flex items-center justify-center w-full gap-2" wire:navigate>
+<a href="{{ $href }}" class="flex items-center justify-center w-full gap-2 hover:animate-pulse" wire:navigate {{ $attributes->merge([]) }}>
 
     <div class="w-6 h-6 rounded-full bg-[#02e659a5] p-3 text-white text-center flex justify-center items-center">
         <span class="-rotate-12">#</span>
