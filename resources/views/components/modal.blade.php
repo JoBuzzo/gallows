@@ -61,11 +61,13 @@
 
         <div class="flex flex-col items-center justify-center gap-4 mt-10 md:justify-start md:items-start">
             <p>
-                Jogar de novo?
+                Mais Games
             </p>
 
             <div class="flex items-center justify-center gap-4 md:justify-start">
-                <a href="/duo" class="items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md inline-flex bg-[#02e659a5] hover:bg-[#02e659be] focus:bg-[#02e659a5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">Jogar</a>
+                <a href="{{ route('gallows') }}" class="items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md inline-flex bg-[#02e659a5] hover:bg-[#02e659be] focus:bg-[#02e659a5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">Gallows</a>
+                <a href="{{ route('gallows.duo') }}" class="items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md inline-flex bg-[#02e659a5] hover:bg-[#02e659be] focus:bg-[#02e659a5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">DuoGallows</a>
+                <a href="{{ route('gallows.quadra') }}" class="items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md inline-flex bg-[#02e659a5] hover:bg-[#02e659be] focus:bg-[#02e659a5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800">QuadraGallows</a>
             </div>
         </div>
     </div>
