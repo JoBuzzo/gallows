@@ -3,13 +3,12 @@
         <x-container :modal="$modal">
             <x-gallows-image :numberImage="$numberImage" />
 
-            
-            <div class="grid gap-2 mt-20 xl:gap-10 xl:grid-cols-2 xl:mt-0">
+            <div class="grid mt-20 space-x-3 xl:grid-cols-2 xl:-mt-16">
                 <div class="flex flex-col items-start justify-end w-full">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr1 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig"/>
+                            <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
                 </div>
@@ -18,7 +17,7 @@
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr2 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig"/>
+                            <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
                 </div>
@@ -26,7 +25,7 @@
                     <h1>3° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr3 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig"/>
+                            <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
                 </div>
@@ -35,7 +34,7 @@
                     <h1>4° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr4 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig"/>
+                            <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
                 </div>

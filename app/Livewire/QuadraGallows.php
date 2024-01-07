@@ -26,7 +26,6 @@ class QuadraGallows extends Component
     public $modal = false;
     public $win;
     public $numberImage = 0;
-    public $wordIsBig;
     public function render()
     {
         if (QuadraGallowsService::finishedWin($this->wordArr1, $this->wordArr2, $this->wordArr3, $this->wordArr4, $this->correctLetters)) {
@@ -74,7 +73,6 @@ class QuadraGallows extends Component
             $this->correctLetters[] = "'";
         }
 
-        $this->wordIsBig = count($this->wordArr1) > 16 || count($this->wordArr2) > 16 || count($this->wordArr3) > 16 || count($this->wordArr4) > 16;
     }
 
     public function verifyLetter($letter)

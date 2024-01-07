@@ -8,7 +8,7 @@
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr1 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig" />
+                            <x-box :w="$w" :correctLetters="$correctLetters" />
                         @endforeach
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr2 as $w)
-                            <x-box :w="$w" :correctLetters="$correctLetters" :wordIsBig="$wordIsBig" />
+                            <x-box :w="$w" :correctLetters="$correctLetters" />
                         @endforeach
                     </div>
                 </div>

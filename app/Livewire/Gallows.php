@@ -20,7 +20,6 @@ class Gallows extends Component
     public $modal = false;
     public $win;
     public $numberImage = 0;
-    public $wordIsBig;
 
     public function mount()
     {
@@ -38,7 +37,6 @@ class Gallows extends Component
         if (in_array("'", $this->wordArr)) {
             $this->correctLetters[] = "'";
         }
-        $this->wordIsBig = count($this->wordArr) > 16;
     }
     
     public function render()
