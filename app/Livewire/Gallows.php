@@ -7,6 +7,7 @@ use App\Services\WordsService;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class Gallows extends Component
@@ -24,10 +25,13 @@ class Gallows extends Component
     public function mount()
     {
         $this->word = WordsService::word(1);
-        
+
         $this->wordArr = preg_split("/(?<!^)(?!$)/u", $this->word);
 
-        $this->lifes = 6;
+        $this->lifes = Session::get('lifes1') ?: 6;
+
+        $this->correctLetters = Session::get('correctLetters1') ?: array();
+        $this->errorLetters = Session::get('errorLetters1') ?: array();
 
         if (in_array('-', $this->wordArr)) {
             $this->correctLetters[] = '-';
@@ -36,7 +40,7 @@ class Gallows extends Component
             $this->correctLetters[] = "'";
         }
     }
-    
+
     public function render()
     {
         if (GallowsService::finishedWin($this->wordArr, $this->correctLetters)) {
@@ -55,10 +59,13 @@ class Gallows extends Component
     {
         if (!in_array($letter, $this->correctLetters) && !in_array($letter, $this->errorLetters)) {
             GallowsService::checkLetterInWord($letter, $this->wordArr, $this->correctLetters, $this->errorLetters, $this->lifes);
+            Session::put('correctLetters1', $this->correctLetters);
+            Session::put('errorLetters1', $this->errorLetters);
+            Session::put('lifes1', $this->lifes);
         }
     }
 
-    #[Rule(['key' => ['required', 'min:1', 'max:1']], message: ['key.min'=> 'Só pode enviar uma letra por vez','key.max'=> 'Só pode enviar uma letra por vez', 'key.required'=> 'É obrigatório enviar uma letra'])]
+    #[Rule(['key' => ['required', 'min:1', 'max:1']], message: ['key.min' => 'Só pode enviar uma letra por vez', 'key.max' => 'Só pode enviar uma letra por vez', 'key.required' => 'É obrigatório enviar uma letra'])]
     public $key = '';
     public function handleKeyDown()
     {

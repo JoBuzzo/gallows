@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Services\QuadraGallowsService;
 use App\Services\WordsService;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Str;
@@ -53,7 +54,10 @@ class QuadraGallows extends Component
         $this->wordArr3 = preg_split("/(?<!^)(?!$)/u", $this->word3);
         $this->wordArr4 = preg_split("/(?<!^)(?!$)/u", $this->word4);
 
-        $this->lifes = 6;
+        $this->lifes = Session::get('lifes') ?: 6;
+
+        $this->correctLetters = Session::get('correctLetters4') ?: array();
+        $this->errorLetters = Session::get('errorLetters4') ?: array();
 
         if (
             in_array('-', $this->wordArr1) ||
@@ -78,6 +82,9 @@ class QuadraGallows extends Component
     {
         if (!in_array($letter, $this->correctLetters) && !in_array($letter, $this->errorLetters)) {
             QuadraGallowsService::checkLetterInWord($letter, $this->wordArr1, $this->wordArr2, $this->wordArr3, $this->wordArr4, $this->correctLetters, $this->errorLetters, $this->lifes);
+            Session::put('correctLetters4', $this->correctLetters);
+            Session::put('errorLetters4', $this->errorLetters);
+            Session::put('lifes4', $this->lifes);
         }
     }
 

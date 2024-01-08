@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Services\DuoGallowsService;
 use App\Services\WordsService;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
@@ -31,7 +32,10 @@ class DuoGallows extends Component
         $this->wordArr1 = preg_split("/(?<!^)(?!$)/u", $this->word1);
         $this->wordArr2 = preg_split("/(?<!^)(?!$)/u", $this->word2);
 
-        $this->lifes = 6;
+        $this->lifes = Session::get('lifes2') ?: 6;
+
+        $this->correctLetters = Session::get('correctLetters2') ?: array();
+        $this->errorLetters = Session::get('errorLetters2') ?: array();
 
         if (in_array('-', $this->wordArr1) || in_array('-', $this->wordArr2)) {
             $this->correctLetters[] = '-';
@@ -60,6 +64,9 @@ class DuoGallows extends Component
     {
         if (!in_array($letter, $this->correctLetters) && !in_array($letter, $this->errorLetters)) {
             DuoGallowsService::checkLetterInWord($letter, $this->wordArr1, $this->wordArr2, $this->correctLetters, $this->errorLetters, $this->lifes);
+            Session::put('correctLetters2', $this->correctLetters);
+            Session::put('errorLetters2', $this->errorLetters);
+            Session::put('lifes2', $this->lifes);
         }
     }
 
