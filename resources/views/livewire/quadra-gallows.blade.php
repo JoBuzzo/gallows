@@ -3,7 +3,7 @@
         <x-container :modal="$modal">
             <x-gallows-image :numberImage="$numberImage" :modal="$modal"/>
 
-            <div class="grid mt-20 xl:grid-cols-2 xl:-mt-16">
+            <div class="grid mt-6 xl:grid-cols-2 xl:-mt-16">
                 <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">

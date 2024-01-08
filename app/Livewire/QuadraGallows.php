@@ -42,12 +42,15 @@ class QuadraGallows extends Component
 
     public function mount()
     {
-        $words = WordsService::words();
+        $words4 = WordsService::words(4);
+        $words5 = WordsService::words(5);
+        $words6 = WordsService::words(6);
+        $words7 = WordsService::words(7);
 
-        $this->word1 = $words[rand(0, count($words))];
-        $this->word2 = $words[rand(0, count($words))];
-        $this->word3 = $words[rand(0, count($words))];
-        $this->word4 = $words[rand(0, count($words))];
+        $this->word1 = $words4[date('z') % count($words4)];
+        $this->word2 = $words5[date('z') % count($words5)];
+        $this->word3 = $words6[date('z') % count($words6)];
+        $this->word4 = $words7[date('z') % count($words7)];
 
         $this->wordArr1 = preg_split("/(?<!^)(?!$)/u", $this->word1);
         $this->wordArr2 = preg_split("/(?<!^)(?!$)/u", $this->word2);

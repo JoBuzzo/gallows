@@ -4,9 +4,9 @@ namespace App\Services;
 
 class WordsService
 {
-    public static function words() 
+    public static function words($num) 
     {
-        $content = file_get_contents('files\\words.txt');
+        $content = file_get_contents("files\\{$num}.txt");
 
         $words = explode(PHP_EOL, $content);
 
