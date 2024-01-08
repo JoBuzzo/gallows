@@ -1,10 +1,10 @@
 <div class="w-full">
     @if (!$modal)
         <x-container :modal="$modal">
-            <x-gallows-image :numberImage="$numberImage" />
+            <x-gallows-image :numberImage="$numberImage" :modal="$modal"/>
 
-            <div class="grid mt-20 space-x-3 xl:grid-cols-2 xl:-mt-16">
-                <div class="flex flex-col items-start justify-end w-full">
+            <div class="grid mt-20 xl:grid-cols-2 xl:-mt-16">
+                <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr1 as $w)
@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col items-start justify-end w-full">
+                <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr2 as $w)
@@ -21,7 +21,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="flex flex-col items-start justify-end w-full">
+                <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>3° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr3 as $w)
@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col items-start justify-end w-full">
+                <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>4° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
                         @foreach ($wordArr4 as $w)
@@ -41,13 +41,6 @@
             </div>
 
             <div class="flex flex-col items-center justify-center w-full">
-                <div class="relative justify-start hidden p-1 md:flex">
-                    <x-input :modal="$modal" />
-                    @if ($errors->has('key'))
-                        <x-error :error="$errors->first('key')" />
-                    @endif
-                </div>
-
                 <x-keyboard :correctLetters="$correctLetters" :errorLetters="$errorLetters" />
             </div>
 

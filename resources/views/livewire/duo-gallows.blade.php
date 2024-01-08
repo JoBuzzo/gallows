@@ -1,7 +1,7 @@
 <div class="w-full">
     @if (!$modal)
         <x-container :modal="$modal">
-            <x-gallows-image :numberImage="$numberImage" />
+            <x-gallows-image :numberImage="$numberImage" :modal="$modal"/>
 
             <div class="grid gap-2 mt-20 xl:gap-10 xl:grid-cols-2 xl:mt-0">
                 <div class="flex flex-col items-start justify-end w-full">
@@ -25,16 +25,7 @@
 
 
             <div class="flex flex-col items-center justify-center w-full">
-                <div class="relative justify-start hidden p-1 md:flex">
-                    <x-input :modal="$modal" />
-                    @if ($errors->has('key'))
-                        <x-error :error="$errors->first('key')"/>
-                    @endif
-                </div>
-
-
                 <x-keyboard :correctLetters="$correctLetters" :errorLetters="$errorLetters" />
-
             </div>
 
         </x-container>
