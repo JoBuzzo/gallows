@@ -25,11 +25,8 @@ class DuoGallows extends Component
     public $numberImage = 0;
     public function mount()
     {
-        $words2 = WordsService::words(2);
-        $words3 = WordsService::words(3);
-
-        $this->word1 = $words2[date('z') % count($words2)];
-        $this->word2 = $words3[date('z') % count($words3)];
+        $this->word1 = WordsService::word(2);
+        $this->word2 = WordsService::word(3);
 
         $this->wordArr1 = preg_split("/(?<!^)(?!$)/u", $this->word1);
         $this->wordArr2 = preg_split("/(?<!^)(?!$)/u", $this->word2);

@@ -23,9 +23,7 @@ class Gallows extends Component
 
     public function mount()
     {
-        $words = WordsService::words(1);
-        
-        $this->word = $words[date('z') % count($words)];
+        $this->word = WordsService::word(1);
         
         $this->wordArr = preg_split("/(?<!^)(?!$)/u", $this->word);
 
