@@ -28,7 +28,7 @@ class Gallows extends Component
 
         $this->wordArr = preg_split("/(?<!^)(?!$)/u", $this->word);
 
-        $this->lifes = Session::get('lifes1') ?: 6;
+        $this->lifes = (Session::get('lifes1') !== null && Session::get('lifes1') >= 0) ? Session::get('lifes1') : 6;
 
         $this->correctLetters = Session::get('correctLetters1') ?: array();
         $this->errorLetters = Session::get('errorLetters1') ?: array();

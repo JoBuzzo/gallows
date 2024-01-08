@@ -54,7 +54,7 @@ class QuadraGallows extends Component
         $this->wordArr3 = preg_split("/(?<!^)(?!$)/u", $this->word3);
         $this->wordArr4 = preg_split("/(?<!^)(?!$)/u", $this->word4);
 
-        $this->lifes = Session::get('lifes') ?: 6;
+        $this->lifes = (Session::get('lifes4') !== null && Session::get('lifes4') >= 0) ? Session::get('lifes4') : 6;
 
         $this->correctLetters = Session::get('correctLetters4') ?: array();
         $this->errorLetters = Session::get('errorLetters4') ?: array();

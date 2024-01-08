@@ -32,7 +32,7 @@ class DuoGallows extends Component
         $this->wordArr1 = preg_split("/(?<!^)(?!$)/u", $this->word1);
         $this->wordArr2 = preg_split("/(?<!^)(?!$)/u", $this->word2);
 
-        $this->lifes = Session::get('lifes2') ?: 6;
+        $this->lifes = (Session::get('lifes2') !== null && Session::get('lifes2') >= 0) ? Session::get('lifes2') : 6;
 
         $this->correctLetters = Session::get('correctLetters2') ?: array();
         $this->errorLetters = Session::get('errorLetters2') ?: array();
