@@ -64,6 +64,8 @@
             </div>
             @if (!$win)
                 <img src="{{ asset('images/6.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
+                @else
+                <img src="{{ asset('images/7.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
             @endif
         </div>
 
