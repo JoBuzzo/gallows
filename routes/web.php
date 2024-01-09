@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\About;
 use App\Livewire\DuoGallows;
 use App\Livewire\Gallows;
 use App\Livewire\QuadraGallows;
@@ -22,3 +23,5 @@ Route::get('/duo', DuoGallows::class)->name('gallows.duo')
     ->middleware('checkSessionExpiration');
 Route::get('/quadra', QuadraGallows::class)->name('gallows.quadra')
     ->middleware('checkSessionExpiration');
+    
+Route::get('/sobre',About::class)->name('about');

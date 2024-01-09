@@ -78,7 +78,7 @@
             </div>
 
 
-            <a href="#" class="flex items-center justify-start w-full gap-2 text-lg font-bold">
+            <a href="{{ route('about') }}" class="flex items-center justify-start w-full gap-2 text-lg font-bold">
                 <x-icon.info class="w-5 h-5" />
                 <span x-show="show" x-transition:enter.duration.500ms>Sobre</span>
             </a>
