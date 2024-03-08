@@ -74,28 +74,7 @@
                     <span id="countdown" class="text-3xl font-extrabold"></span>
                 </div>
 
-                <script>
-                    function updateCountdown() {
-                        var now = new Date();
 
-                        var midnight = new Date(now);
-                        midnight.setHours(24, 0, 0, 0);
-
-                        var timeUntilMidnight = midnight - now;
-
-                        var hours = Math.floor(timeUntilMidnight / (1000 * 60 * 60));
-                        var minutes = Math.floor((timeUntilMidnight % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((timeUntilMidnight % (1000 * 60)) / 1000);
-
-                        document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " +
-                            seconds +
-                            "s";
-                    }
-
-                    setInterval(updateCountdown, 1000);
-
-                    updateCountdown();
-                </script>
             </div>
         </div>
 
