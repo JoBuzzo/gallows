@@ -9,7 +9,8 @@
 ])
 
 <div class="absolute left-0 right-0 flex items-center justify-center p-2 md:top-16">
-    <div class="flex flex-col items-center justify-center w-4/5 p-8 bg-black rounded-lg md:w-1/2 md:justify-normal md:items-stretch">
+    <div
+        class="flex flex-col items-center justify-center w-4/5 p-8 bg-black rounded-lg md:w-1/2 md:justify-normal md:items-stretch">
 
         <div class="flex flex-col items-center justify-between gap-2 xl:flex-row">
             <div class="flex flex-col">
@@ -62,11 +63,40 @@
                     </div>
                 @endif
             </div>
-            @if (!$win)
-                <img src="{{ asset('images/6.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
+            <div>
+                @if (!$win)
+                    <img src="{{ asset('images/6.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
                 @else
-                <img src="{{ asset('images/7.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
-            @endif
+                    <img src="{{ asset('images/7.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
+                @endif
+                <div class="flex flex-col items-end">
+                    <span class="text-2xl font-extrabold">Nova palavra em: </span>
+                    <span id="countdown" class="text-3xl font-extrabold"></span>
+                </div>
+
+                <script>
+                    function updateCountdown() {
+                        var now = new Date();
+
+                        var midnight = new Date(now);
+                        midnight.setHours(24, 0, 0, 0);
+
+                        var timeUntilMidnight = midnight - now;
+
+                        var hours = Math.floor(timeUntilMidnight / (1000 * 60 * 60));
+                        var minutes = Math.floor((timeUntilMidnight % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((timeUntilMidnight % (1000 * 60)) / 1000);
+
+                        document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " +
+                            seconds +
+                            "s";
+                    }
+
+                    setInterval(updateCountdown, 1000);
+
+                    updateCountdown();
+                </script>
+            </div>
         </div>
 
         <div class="flex flex-col items-center justify-center gap-4 mt-10 md:justify-start md:items-start">
