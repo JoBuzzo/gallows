@@ -10,7 +10,7 @@
 
 <div class="absolute left-0 right-0 flex items-center justify-center p-2 md:top-16">
     <div
-        class="flex flex-col items-center justify-center w-4/5 p-8 bg-black rounded-lg md:w-1/2 md:justify-normal md:items-stretch">
+        class="flex flex-col items-center justify-center w-full p-8 bg-black rounded-lg md:w-1/2 md:justify-normal md:items-stretch">
 
         <div class="flex flex-col items-center justify-between gap-2 xl:flex-row">
             <div class="flex flex-col">
@@ -33,35 +33,23 @@
                     </div>
                 </div>
 
-                @if (count($errorLetters) > 0)
-                    <div class="flex flex-col items-start justify-start mt-10">
-                        <h1 class="text-lg">Letras erradas:</h1>
-                        <div class="flex flex-wrap items-center justify-center">
-                            @foreach (array_unique($errorLetters) as $errorLetter)
-                                <div
-                                    class="flex items-center justify-center w-8 h-8 text-xl text-center text-white uppercase bg-[#FF3C3C] border border-black rounded-md xl:h-12 xl:w-12">
-                                    {{ $errorLetter }}
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
 
-                @if (count($correctLetters) > 0)
-                    <div class="flex flex-col items-start justify-start mt-10">
-                        <h1 class="text-lg">Letras corretas:</h1>
-                        <div class="flex flex-wrap items-center justify-center">
-                            @foreach (array_unique($correctLetters) as $currectLetter)
-                                @if ($currectLetter != '-' && $currectLetter != "'")
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 text-xl text-center text-white uppercase border border-black bg-[#02e659a5] rounded-md xl:h-12 xl:w-12">
-                                        {{ $currectLetter }}
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
+                    <div class="flex flex-wrap items-center justify-center my-5">
+                        @foreach (array_unique($correctLetters) as $currectLetter)
+                            @if ($currectLetter != '-' && $currectLetter != "'")
+                                <div
+                                    class="flex items-center justify-center w-8 h-8 text-xl text-center text-white uppercase border border-black bg-[#02e659a5] rounded-md xl:h-12 xl:w-12">
+                                    {{ $currectLetter }}
+                                </div>
+                            @endif
+                        @endforeach
+                        @foreach (array_unique($errorLetters) as $errorLetter)
+                            <div
+                                class="flex items-center justify-center w-8 h-8 text-xl text-center text-white uppercase bg-[#FF3C3C] border border-black rounded-md xl:h-12 xl:w-12">
+                                {{ $errorLetter }}
+                            </div>
+                        @endforeach
                     </div>
-                @endif
             </div>
             <div>
                 @if (!$win)
