@@ -70,7 +70,7 @@
                     <img src="{{ asset('images/7.png') }}" alt="Gallows image game" class="w-36 2xl:w-48">
                 @endif
                 <div class="flex flex-col items-end">
-                    <span class="text-2xl font-extrabold">Nova palavra em: </span>
+                    <span class="text-2xl font-extrabold whitespace-nowrap">Nova palavra em: </span>
                     <span id="countdown" class="text-3xl font-extrabold"></span>
                 </div>
 
