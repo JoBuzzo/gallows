@@ -22,6 +22,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \App\Http\Middleware\CheckSessionExpiration::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\RemoveSessions::class,
+
     ];
 
     /**
@@ -66,5 +68,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkSessionExpiration' => \App\Http\Middleware\CheckSessionExpiration::class,
+        'removeSessions' => \App\Http\Middleware\RemoveSessions::class,
     ];
 }
