@@ -7,7 +7,7 @@
                 <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr1 as $w)
+                        @foreach (App\Services\QuadraGallowsService::getWordArr1() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
@@ -16,7 +16,7 @@
                 <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr2 as $w)
+                        @foreach (App\Services\QuadraGallowsService::getWordArr2() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
@@ -24,7 +24,7 @@
                 <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>3° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr3 as $w)
+                        @foreach (App\Services\QuadraGallowsService::getWordArr3() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
@@ -33,7 +33,7 @@
                 <div class="flex flex-col items-start justify-end w-full mx-4">
                     <h1>4° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr4 as $w)
+                        @foreach (App\Services\QuadraGallowsService::getWordArr4() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters"/>
                         @endforeach
                     </div>
@@ -46,6 +46,6 @@
 
         </x-container>
     @else
-        <x-modal :win="$win" :word1="$word1" :word2="$word2" :word3="$word3" :word4="$word4" :errorLetters="$errorLetters" :correctLetters="$correctLetters" />
+        <x-modal :win="$win" :word1="App\Services\QuadraGallowsService::getWord1()" :word2="App\Services\QuadraGallowsService::getWord2()" :word3="App\Services\QuadraGallowsService::getWord3()" :word4="App\Services\QuadraGallowsService::getWord4()" :errorLetters="$errorLetters" :correctLetters="$correctLetters" />
     @endif
 </div>

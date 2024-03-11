@@ -50,4 +50,22 @@ class DuoGallowsService
 
         self::compareLetterWithAccent(Str::ascii($wordArr[$key]), $wordArr, $correctLetters);
     }
+
+    public static function getWord1(): string
+    {
+        return WordsService::duo()[0];
+    }
+    public static function getWord2(): string
+    {
+        return WordsService::duo()[1];
+    }
+
+    public static function getWordArr1()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord1());
+    }
+    public static function getWordArr2()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord2());
+    }
 }

@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Services\GallowsService;
-use App\Services\WordsService;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
@@ -13,8 +12,7 @@ use Livewire\Component;
 class Gallows extends Component
 {
     #[Title("Gallows")]
-    public string $word;
-    public $wordArr = array();
+
     public int $lifes;
     public $correctLetters = array();
     public $errorLetters = array();
@@ -24,26 +22,22 @@ class Gallows extends Component
 
     public function mount()
     {
-        $this->word = WordsService::word();
-
-        $this->wordArr = preg_split("/(?<!^)(?!$)/u", $this->word);
-
         $this->lifes = (Session::get('lifes1') !== null && Session::get('lifes1') >= 0) ? Session::get('lifes1') : 6;
 
         $this->correctLetters = Session::get('correctLetters1') ?: array();
         $this->errorLetters = Session::get('errorLetters1') ?: array();
 
-        if (in_array('-', $this->wordArr)) {
+        if (in_array('-', GallowsService::getWordArr())) {
             $this->correctLetters[] = '-';
         }
-        if (in_array("'", $this->wordArr)) {
+        if (in_array("'", GallowsService::getWordArr())) {
             $this->correctLetters[] = "'";
         }
     }
 
     public function render()
     {
-        if (GallowsService::finishedWin($this->wordArr, $this->correctLetters)) {
+        if (GallowsService::finishedWin(GallowsService::getWordArr(), $this->correctLetters)) {
             $this->modal = true;
             $this->win = true;
         } else if (GallowsService::finishedLost($this->lifes)) {
@@ -58,7 +52,7 @@ class Gallows extends Component
     public function verifyLetter($letter)
     {
         if (!in_array($letter, $this->correctLetters) && !in_array($letter, $this->errorLetters)) {
-            GallowsService::checkLetterInWord($letter, $this->wordArr, $this->correctLetters, $this->errorLetters, $this->lifes);
+            GallowsService::checkLetterInWord($letter, GallowsService::getWordArr(), $this->correctLetters, $this->errorLetters, $this->lifes);
             Session::put('correctLetters1', $this->correctLetters);
             Session::put('errorLetters1', $this->errorLetters);
             Session::put('lifes1', $this->lifes);

@@ -7,7 +7,7 @@
                 <div class="flex flex-col items-start">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr as $w)
+                        @foreach (App\Services\GallowsService::getWordArr() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters" />
                         @endforeach
                     </div>
@@ -19,7 +19,7 @@
 
         </x-container>
     @else
-        <x-modal :win="$win" :word1="$word" :errorLetters="$errorLetters" :correctLetters="$correctLetters" />
+        <x-modal :win="$win" :word1="App\Services\GallowsService::getWord()" :errorLetters="$errorLetters" :correctLetters="$correctLetters" />
     @endif
 
 </div>

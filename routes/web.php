@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', Gallows::class)->name('gallows')
     ->middleware('checkSessionExpiration');
 Route::get('/duo', DuoGallows::class)->name('gallows.duo')

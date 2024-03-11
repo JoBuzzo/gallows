@@ -7,7 +7,7 @@
                 <div class="flex flex-col items-start justify-end w-full">
                     <h1>1° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr1 as $w)
+                        @foreach (App\Services\DuoGallowsService::getWordArr1() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters" />
                         @endforeach
                     </div>
@@ -16,7 +16,7 @@
                 <div class="flex flex-col items-start justify-end w-full">
                     <h1>2° Palavra </h1>
                     <div class="flex items-center justify-center gap-1">
-                        @foreach ($wordArr2 as $w)
+                        @foreach (App\Services\DuoGallowsService::getWordArr2() as $w)
                             <x-box :w="$w" :correctLetters="$correctLetters" />
                         @endforeach
                     </div>
@@ -30,7 +30,7 @@
 
         </x-container>
     @else
-        <x-modal :win="$win" :word1="$word1" :word2="$word2" :errorLetters="$errorLetters" :correctLetters="$correctLetters" />
+        <x-modal :win="$win" :word1="App\Services\DuoGallowsService::getWord1()" :word2="App\Services\DuoGallowsService::getWord2()" :errorLetters="$errorLetters" :correctLetters="$correctLetters" />
     @endif
 
 </div>

@@ -52,4 +52,38 @@ class QuadraGallowsService
 
         self::compareLetterWithAccent(Str::ascii($wordArr[$key]), $wordArr, $correctLetters);
     }
+
+    public static function getWord1(): string
+    {
+        return WordsService::quadra()[0];
+    }
+    public static function getWord2(): string
+    {
+        return WordsService::quadra()[1];
+    }
+    public static function getWord3(): string
+    {
+        return WordsService::quadra()[2];
+    }
+    public static function getWord4(): string
+    {
+        return WordsService::quadra()[3];
+    }
+
+    public static function getWordArr1()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord1());
+    }
+    public static function getWordArr2()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord2());
+    }
+    public static function getWordArr3()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord3());
+    }
+    public static function getWordArr4()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord4());
+    }
 }

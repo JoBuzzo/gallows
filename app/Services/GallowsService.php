@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 
 class GallowsService
 {
-
     protected static function compareLetterWithAccent($letter, $wordArr, &$correctLetters)
     {
         $return = false;
@@ -50,4 +49,16 @@ class GallowsService
         self::compareLetterWithAccent(Str::ascii($wordArr[$key]), $wordArr, $correctLetters);
 
     }
+
+
+    public static function getWord(): string
+    {
+        return WordsService::word();
+    }
+
+    public static function getWordArr()
+    {
+        return preg_split("/(?<!^)(?!$)/u", Self::getWord());
+    }
+
 }
