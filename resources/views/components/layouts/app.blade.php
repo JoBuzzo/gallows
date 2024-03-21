@@ -11,11 +11,9 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="icon" href="{{ asset('images/logo.png') }}">
     <link rel="manifest" href="/manifest.json">
-    <!-- Scripts -->
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @if (!config('app.debug'))
-        <script src="https://cdn.usefathom.com/script.js" data-site="ABCDEFG" data-spa="auto" defer></script>
-    @endif
+
 </head>
 
 <body class="bg-[#181818] min-h-screen overflow-x-hidden text-white">
