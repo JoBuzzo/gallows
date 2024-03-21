@@ -6,7 +6,7 @@ class WordsService
 {
     public static function word()
     {
-        $content = file_get_contents("files\\words5.txt");
+        $content = file_get_contents("files\\words8.txt");
 
         $words = explode(PHP_EOL, $content);
 
@@ -34,7 +34,7 @@ class WordsService
     }
     public static function quadra()
     {
-        $content = file_get_contents("files\\words8.txt");
+        $content = file_get_contents("files\\words5.txt");
 
         $words = explode(PHP_EOL, $content);
 
